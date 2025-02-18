@@ -1,7 +1,5 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import AuthPage from './pages/AuthPage'
-import Dashboard from './pages/Dashboard'
 import LandingPage from './pages/LandingPage'
 
 function App() {
