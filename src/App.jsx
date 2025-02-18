@@ -10,8 +10,6 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path='/' element={<LandingPage />} />
-				<Route path="/dashboard" element={<Dashboard />} />
-				<Route path="/auth" element={<AuthPage />} />
 			</Routes>
 		</Router>
 	)
