@@ -203,6 +203,14 @@ export default function ElectricalEngineerLanding() {
                 </div>
                 </div>
             )}
+            <footer className="bg-black text-center py-8">
+                <p className="text-gray-300">
+                    &copy; 2025 Victor Okeowo. All rights reserved.
+                </p>
+                <p className="text-gray-300">
+                    Designed By <a href="mailto:adeyeriopeoluwa05@gmail.com" className="text-blue-400">Opeoluwa Adeyeri</a>
+                </p>
+            </footer>
         </div>
     );
 }
