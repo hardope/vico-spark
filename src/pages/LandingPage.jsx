@@ -8,7 +8,6 @@ import field_engineer from "../assets/field-engineer.jpg";
 import engineering from "../assets/engineering.jpg";
 
 export default function ElectricalEngineerLanding() {
-    // Updated projects state with dynamic details
     const [selectedImage, setSelectedImage] = useState(null);
     const [projects, setProjects] = useState([
         {
@@ -54,21 +53,21 @@ export default function ElectricalEngineerLanding() {
                 <motion.img
                     src={engineer}
                     alt="Engineer"
-                    className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full border-4 border-blue-400 shadow-[0_0_20px_rgba(66,135,245,0.5)] mb-4 relative z-10"
+                    className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full border-4 border-blue-400 shadow-[0_0_20px_rgba(66,135,245,0.5)] mb-4 relative z-10"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1, rotate: [0, 360] }}
                     transition={{ duration: 1, ease: "easeOut", times: [0, 1] }}
                     />
 
-                <h1 className="text-5xl md:text-7xl font-bold text-blue-400 tracking-tight drop-shadow-[0_0_15px_rgba(66,135,245,0.8)] relative z-10">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-400 tracking-tight drop-shadow-[0_0_15px_rgba(66,135,245,0.8)] relative z-10">
                     Victor Okeowo ~ Vico Spark
                 </h1>
                 
-                <h3 className="text-4xl font-bold text-blue-400 mt-4 animate-pulse relative z-10">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400 mt-4 animate-pulse relative z-10">
                     Bringing Power to Life
                 </h3>
 
-                <p className="text-xl mt-6 max-w-2xl leading-relaxed text-gray-300 relative z-10">
+                <p className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed text-gray-300 relative z-10">
                     Experienced Electrical Engineer specializing in power systems, installations, and consulting. Committed to delivering high-quality, safe, and efficient electrical solutions.
                 </p>
 
@@ -123,8 +122,8 @@ export default function ElectricalEngineerLanding() {
                 className="py-16 px-6 max-w-4xl mx-auto text-center"
             >
                 <div className="bg-black border border-blue-500/20 rounded-xl p-8 shadow-[0_0_20px_rgba(66,135,245,0.2)]">
-                    <h2 className="text-5xl font-bold text-blue-400 mb-6">About Me</h2>
-                    <p className="text-xl leading-relaxed text-gray-300">
+                    <h2 className="text-4xl md:text-5xl font-bold text-blue-400 mb-6">About Me</h2>
+                    <p className="text-lg md:text-xl leading-relaxed text-gray-300">
                         With over a decade of experience in the electrical industry, I have worked on large-scale power distribution, industrial automation, and sustainable energy solutions. I specialize in designing, implementing, and maintaining electrical systems that meet both safety and efficiency standards.
                     </p>
                 </div>
@@ -138,7 +137,7 @@ export default function ElectricalEngineerLanding() {
                 className="py-16 px-4"
             >
                 <div className="bg-black/90 border border-blue-500/20 rounded-xl p-8 shadow-[0_0_20px_rgba(66,135,245,0.2)]">
-                    <h2 className="text-5xl font-bold text-blue-400 mb-10 text-center">Review Our work</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold text-blue-400 mb-10 text-center">Review Our work</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {projects.map((project, index) => (
                         <motion.div
@@ -167,40 +166,44 @@ export default function ElectricalEngineerLanding() {
 
             {/* Image Viewer Modal */}
             {selectedImage && (
-                <div className="w-100vw h-100vh fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-lg">
-                <div className="max-w-200">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative max-w-[90vw] max-h-[90vh] w-full flex items-center justify-center"
-                        onClick={() => setSelectedImage(null)}
-                    >
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-lg">
+                    <div className="max-w-4xl w-full">
                         <motion.div
-                            className="relative max-w-[90vw] max-h-[90vh] w-full"
-                            onClick={(e) => e.stopPropagation()}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative w-full max-w-[90vw] max-h-[80vh] flex items-center justify-center"
+                            onClick={() => setSelectedImage(null)}
                         >
-                            <img
-                                src={selectedImage.project.image}
-                                alt={selectedImage.project.title}
-                                className="w-full h-auto object-contain rounded-lg shadow-[0_0_40px_rgba(66,135,245,0.4)]"
-                            />
-                            {/* Close Button */}
-                            <button
-                                onClick={() => setSelectedImage(null)}
-                                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 transition-colors rounded-full p-3"
+                            <motion.div
+                                className="relative w-full max-w-[80%] max-h-[70vh] md:max-w-[60%] lg:max-w-[50%] overflow-hidden"
+                                onClick={(e) => e.stopPropagation()}
                             >
-                                <FaTimes size={24} className="text-white" />
-                                <span className="sr-only">Close</span>
-                            </button>
-                            {/* Project Information */}
-                            <div className="mt-4 p-4 bg-black/80 border-t border-blue-500/20 rounded-b-lg">
-                                <h3 className="text-3xl font-bold text-blue-400 mb-4">{selectedImage.project.title}</h3>
-                                <p className="text-gray-300 leading-relaxed">{selectedImage.project.description}</p>
-                            </div>
+                                <img
+                                    src={selectedImage.project.image}
+                                    alt={selectedImage.project.title}
+                                    className="w-full h-auto object-contain rounded-lg shadow-[0_0_40px_rgba(66,135,245,0.4)]"
+                                />
+                                {/* Close Button */}
+                                <button
+                                    onClick={() => setSelectedImage(null)}
+                                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 transition-colors rounded-full p-3"
+                                >
+                                    <FaTimes size={24} className="text-white" />
+                                    <span className="sr-only">Close</span>
+                                </button>
+                                {/* Project Information */}
+                                <div className="mt-4 p-4 bg-black/80 border-t border-blue-500/20 rounded-b-lg text-center">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-2">
+                                        {selectedImage.project.title}
+                                    </h3>
+                                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                                        {selectedImage.project.description}
+                                    </p>
+                                </div>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                </div>
+                    </div>
                 </div>
             )}
             <footer className="bg-black text-center py-8">
