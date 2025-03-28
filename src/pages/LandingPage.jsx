@@ -2,217 +2,346 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaFacebook, FaPhoneAlt, FaLinkedin, FaTimes } from "react-icons/fa";
 import engineer from "../assets/engineer.png";
-import bulb from "../assets/bulb.jpg";
-import breakers from "../assets/breakers.jpg";
-import field_engineer from "../assets/field-engineer.jpg";
-import engineering from "../assets/engineering.jpg";
+
+import firstMain from "../assets/first/main.jpg";
+import firstone from "../assets/first/1.jpg";
+import firsttwo from "../assets/first/2.jpg";
+
+import secondMain from "../assets/second/main.jpg";
+import secondone from "../assets/second/1.jpg";
+import secondtwo from "../assets/second/2.jpg";
+
+import thirdMain from "../assets/third/main.jpg";
+import thirdone from "../assets/third/1.jpg";
+
 
 export default function ElectricalEngineerLanding() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [projects, setProjects] = useState([
         {
-            image: field_engineer,
-            title: "Electrical System Installation",
+            image: firstMain,
+            album: [firstone, firsttwo],
+            title: "Ceiling Light Installation",
             description:
-                "This project showcases my expertise in designing and implementing large-scale electrical distribution systems. The installation features advanced automation controls and energy-efficient solutions, ensuring optimal performance while maintaining safety standards."
+                "Converting a 600mm x 600mm 2 feet by 4 fluorescent light into a  600mm x 600mm LED Panel light"
             },
         {
-            image: breakers,
-            title: "Breaker Panel Upgrade",
+            image: secondMain,
+            album: [secondone, secondtwo],
+            title: "Installed waterproof socket outlet",
             description:
-                "Upgraded an outdated breaker panel to a modern, efficient system ensuring safety and compliance with new regulations."
+                "Installation of a 13A double waterproof Socket outlet."
             },
         {
-            image: engineering,
-            title: "Industrial Automation Project",
+            image: thirdMain,
+            album: [thirdone],
+            title: "Electrical panel control installation",
             description:
-                "Designed and implemented automation systems to streamline industrial operations, reducing downtime and increasing productivity."
+                "Installation of a 3 phase electrical panel control system."
             },
-        {
-            image: bulb,
-            title: "Energy-Efficient Lighting",
-            description:
-                "Developed lighting solutions that reduce energy consumption while providing optimal brightness and longevity."
-            }
     ]);
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-black text-white flex flex-col">
             {/* Hero Section */}
-            <motion.section
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden"
-            >
-                {/* Electric border effect with lower z-index */}
-                <div className="absolute inset-0 z-0 border-t-4 border-b-4 border-blue-500/30 rounded-lg pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-400/10 to-transparent" />
-                </div>
-
-                <motion.img
-                    src={engineer}
-                    alt="Engineer"
-                    className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full border-4 border-blue-400 shadow-[0_0_20px_rgba(66,135,245,0.5)] mb-4 relative z-10"
+            <header className="w-full py-16 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-black via-[#0a0a0a] to-[#121212]">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
+                    <div className="w-full md:w-1/2 flex flex-col items-start space-y-6">
+                        <motion.h1
+                            initial={{ opacity: 0, y: -30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="text-4xl md:text-5xl font-bold text-blue-400 animate-pulse relative z-10"
+                            >
+                            Engineering the Future of Power Systems
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                            className="text-gray-300 text-lg md:text-xl"
+                            >
+                            Innovative electrical solutions for tomorrow's challenges
+                        </motion.p>
+                        <motion.a
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, delay: 0.4 }}
+                            href="#projects"
+                            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold"
+                        >
+                            View Projects
+                        </motion.a>
+                    </div>
+                <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1, rotate: [0, 360] }}
-                    transition={{ duration: 1, ease: "easeOut", times: [0, 1] }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="w-full md:w-1/2 flex justify-center md:justify-end"
+                >
+                    <img
+                    src={engineer}
+                    alt="Engineer"
+                    className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-blue-500 shadow-xl"
                     />
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-400 tracking-tight drop-shadow-[0_0_15px_rgba(66,135,245,0.8)] relative z-10">
-                    Victor Okeowo ~ Vico Spark
-                </h1>
-                
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400 mt-4 animate-pulse relative z-10">
-                    Bringing Power to Life
-                </h3>
-
-                <p className="text-lg md:text-xl mt-6 max-w-2xl leading-relaxed text-gray-300 relative z-10">
-                    Experienced Electrical Engineer specializing in power systems, installations, and consulting. Committed to delivering high-quality, safe, and efficient electrical solutions.
-                </p>
-
-                {/* Social Links with electric glow */}
-                <div className="mt-8 flex space-x-6 relative z-10">
-                    {[
-                        {
-                            href: "https://wa.me/+2349077008142",
-                            icon: FaWhatsapp,
-                            color: "bg-green-500 hover:bg-green-600",
-                            target: "_blank"
-                        },
-                        {
-                            href: "https://web.facebook.com/victor.okeowo.spark",
-                            icon: FaFacebook,
-                            color: "bg-blue-600 hover:bg-blue-700",
-                            target: "_blank"
-                        },
-                        {
-                            href: "https://www.linkedin.com/in/victor-okeowo-7742a8209/",
-                            icon: FaLinkedin,
-                            color: "bg-blue-500 hover:bg-blue-600",
-                            target: "_blank"
-                        },
-                        {
-                            href: "tel:+2349077008142",
-                            icon: FaPhoneAlt,
-                            color: "bg-gray-700 hover:bg-gray-800"
-                        }
-                    ].map(({ href, icon: Icon, color, target }) => (
-                        <motion.a
-                            key={href}
-                            href={href}
-                            target={target}
-                            rel="noopener noreferrer"
-                            className={`p-4 rounded-full ${color} transition-all duration-300 group`}
-                            whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)" }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                        <Icon size={28} className="text-white" />
-                            <span className="sr-only">Social Link</span>
-                        </motion.a>
-                    ))}
+                </motion.div>
                 </div>
-            </motion.section>
+            </header>
 
-            {/* About Section */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="py-16 px-6 max-w-4xl mx-auto text-center"
+            {/* Profile Section */}
+            <section
+                id="about"
+                className="w-full py-16 px-6 md:px-12 lg:px-24 bg-black border-t border-gray-800"
             >
-                <div className="bg-black border border-blue-500/20 rounded-xl p-8 shadow-[0_0_20px_rgba(66,135,245,0.2)]">
-                    <h2 className="text-4xl md:text-5xl font-bold text-blue-400 mb-6">About Me</h2>
-                    <p className="text-lg md:text-xl leading-relaxed text-gray-300">
-                        With over a decade of experience in the electrical industry, I have worked on large-scale power distribution, industrial automation, and sustainable energy solutions. I specialize in designing, implementing, and maintaining electrical systems that meet both safety and efficiency standards.
-                    </p>
-                </div>
-            </motion.section>
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-4">
+                            Victor Okeowo ~ Vico Spark
+                        </h2>
+                        <h3 className="text-xl md:text-2xl text-blue-200 mb-4">
+                            Bringing Power to Life
+                        </h3>
+                        <p className="text-gray-300 text-lg leading-relaxed">
+                            Experienced Electrical Engineer specializing in power systems,
+                            installations, and consulting. Committed to delivering
+                            high-quality, safe, and efficient electrical solutions. With nearly
+                            a decade of experience in the electrical industry, I have worked
+                            on large-scale power distribution, industrial automation, and
+                            sustainable energy solutions. I specialize in designing,
+                            implementing, and maintaining electrical systems that meet both
+                            safety and efficiency standards.
+                        </p>
 
-            {/* Portfolio Section */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="py-16 px-4"
-            >
-                <div className="bg-black/90 border border-blue-500/20 rounded-xl p-8 shadow-[0_0_20px_rgba(66,135,245,0.2)]">
-                    <h2 className="text-4xl md:text-5xl font-bold text-blue-400 mb-10 text-center">Review Our work</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            onClick={() => setSelectedImage({ project, index })}
-                            whileHover={{ scale: 1.05, zIndex: 10, boxShadow: "0 0 30px rgba(66,135,245,0.4)" }}
-                            whileTap={{ scale: 0.98 }}
-                            className="group cursor-pointer overflow-hidden rounded-xl border border-blue-500/20 transition-all duration-300 relative"
-                        >
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full aspect-square object-cover transform transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div className="w-full text-center pb-6">
-                                <h3 className="text-2xl font-semibold text-blue-400 mb-2">{project.title}</h3>
-                                <p className="text-gray-300 text-sm">Click to view details</p>
-                            </div>
-                            </div>
-                        </motion.div>
+                        {/* Social Links */}
+                        <div className="mt-6 flex space-x-4">
+                        {[
+                            {
+                                href: "https://wa.me/+2349077008142",
+                                icon: FaWhatsapp,
+                                color: "bg-green-500 hover:bg-green-600",
+                                target: "_blank"
+                            },
+                            {
+                                href: "https://web.facebook.com/victor.okeowo.spark",
+                                icon: FaFacebook,
+                                color: "bg-blue-600 hover:bg-blue-700",
+                                target: "_blank"
+                            },
+                            {
+                                href: "https://www.linkedin.com/in/victor-okeowo-7742a8209/",
+                                icon: FaLinkedin,
+                                color: "bg-blue-500 hover:bg-blue-600",
+                                target: "_blank"
+                            },
+                            {
+                                href: "tel:+2349077008142",
+                                icon: FaPhoneAlt,
+                                color: "bg-gray-700 hover:bg-gray-800"
+                            }
+                        ].map(({ href, icon: Icon, color, target }) => (
+                            <motion.a
+                                key={href}
+                                href={href}
+                                target={target}
+                                rel="noopener noreferrer"
+                                className={`p-4 rounded-full ${color} transition-all duration-300 group`}
+                                whileHover={{
+                                    scale: 1.1,
+                                    boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"
+                                }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Icon size={20} className="text-white" />
+                                <span className="sr-only">Social Link</span>
+                            </motion.a>
                         ))}
+                        </div>
                     </div>
                 </div>
-            </motion.section>
+            </section>
+
+            {/* Featured Projects / Album Section */}
+            <section
+                id="projects"
+                className="w-full py-16 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] border-t border-gray-800"
+            >
+                <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-10">
+                    Featured Projects
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, index) => (
+                    <motion.div
+                        key={index}
+                        onClick={() => setSelectedImage({ project, index })}
+                        whileHover={{
+                        scale: 1.02,
+                        boxShadow: "0 0 30px rgba(66,135,245,0.4)"
+                        }}
+                        whileTap={{ scale: 0.98 }}
+                        className="cursor-pointer overflow-hidden rounded-lg border border-blue-500/20 transition-all duration-300 relative group"
+                    >
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full aspect-square object-cover transform transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div className="w-full text-center pb-4">
+                                <h3 className="text-2xl font-semibold text-blue-400">
+                                    {project.title}
+                                </h3>
+                                <p className="text-gray-300 text-sm">
+                                    Click to view details
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                    ))}
+                </div>
+                </div>
+            </section>
+
+            {/* Areas of Expertise (Optional Section) */}
+            <section className="w-full py-16 px-6 md:px-12 lg:px-24 bg-black border-t border-gray-800">
+                <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-10">
+                    Areas of Expertise
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-gray-300">
+                    <div className="bg-[#111111] p-6 rounded-lg shadow-sm hover:shadow-lg transition">
+                    <h3 className="text-xl font-semibold text-blue-300 mb-2">
+                        Power Distribution
+                    </h3>
+                    <p>
+                        Comprehensive planning and installation for large-scale
+                        electrical power systems.
+                    </p>
+                    </div>
+                    <div className="bg-[#111111] p-6 rounded-lg shadow-sm hover:shadow-lg transition">
+                    <h3 className="text-xl font-semibold text-blue-300 mb-2">
+                        Renewable Energy
+                    </h3>
+                    <p>
+                        Sustainable solutions that reduce carbon footprint and
+                        operational costs.
+                    </p>
+                    </div>
+                    <div className="bg-[#111111] p-6 rounded-lg shadow-sm hover:shadow-lg transition">
+                    <h3 className="text-xl font-semibold text-blue-300 mb-2">
+                        Automation & Control
+                    </h3>
+                    <p>
+                        Modernizing industrial processes for enhanced efficiency and
+                        safety.
+                    </p>
+                    </div>
+                    <div className="bg-[#111111] p-6 rounded-lg shadow-sm hover:shadow-lg transition">
+                    <h3 className="text-xl font-semibold text-blue-300 mb-2">
+                        Safety & Systems
+                    </h3>
+                    <p>
+                        Compliance with the latest regulations and standards for
+                        electrical installations.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            {/* Call to Action */}
+            <section className="w-full py-16 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] border-t border-gray-800">
+                <div className="max-w-6xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-4">
+                    Let's Work Together
+                </h2>
+                <p className="text-gray-300 text-lg mb-8">
+                    Ready to bring your electrical project to life?
+                </p>
+                <a
+                    href="tel:+2349077008142"
+                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold"
+                >
+                    Get in Touch
+                </a>
+                </div>
+            </section>
 
             {/* Image Viewer Modal */}
             {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-lg">
-                    <div className="max-w-4xl w-full">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className="relative w-full max-w-[90vw] max-h-[80vh] flex items-center justify-center"
-                            onClick={() => setSelectedImage(null)}
+            <div className="fixed inset-0 h-screen z-50 flex items-center justify-center p-4 backdrop-blur-lg overflow-auto">
+                <div className="max-w-4xl w-full h-[90%]">
+                    <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-black/80 p-4 rounded-lg"
+                    onClick={() => setSelectedImage(null)}
+                    >
+                    {/* Main Image and Close Button */}
+                    <motion.div
+                        className="relative"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <img
+                        src={selectedImage.project.image}
+                        alt={selectedImage.project.title}
+                        className="w-full max-h-[70vh] h-auto object-contain rounded-lg shadow-[0_0_40px_rgba(66,135,245,0.4)]"
+                        />
+                        <button
+                        onClick={() => setSelectedImage(null)}
+                        className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 transition-colors rounded-full p-3"
                         >
-                            <motion.div
-                                className="relative w-full max-w-[80%] max-h-[70vh] md:max-w-[60%] lg:max-w-[50%] overflow-hidden"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <img
-                                    src={selectedImage.project.image}
-                                    alt={selectedImage.project.title}
-                                    className="w-full h-auto object-contain rounded-lg shadow-[0_0_40px_rgba(66,135,245,0.4)]"
-                                />
-                                {/* Close Button */}
-                                <button
-                                    onClick={() => setSelectedImage(null)}
-                                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 transition-colors rounded-full p-3"
-                                >
-                                    <FaTimes size={24} className="text-white" />
-                                    <span className="sr-only">Close</span>
-                                </button>
-                                {/* Project Information */}
-                                <div className="mt-4 p-4 bg-black/80 border-t border-blue-500/20 rounded-b-lg text-center">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-2">
-                                        {selectedImage.project.title}
-                                    </h3>
-                                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                                        {selectedImage.project.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        </motion.div>
+                        <FaTimes size={24} className="text-white" />
+                        <span className="sr-only">Close</span>
+                        </button>
+                    </motion.div>
+
+                    {/* Project Details */}
+                    <div className="mt-4 p-4 border-t border-blue-500/20 text-center">
+                        <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-2">
+                        {selectedImage.project.title}
+                        </h3>
+                        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                        {selectedImage.project.description}
+                        </p>
                     </div>
+
+                    {/* Photo Album */}
+                    {selectedImage.project.album.length > 0 && (
+                        <div className="mt-4 p-4 border-t border-blue-500/20 text-center">
+                        <div className="grid grid-cols-1 md:grid-cols-2 space-x-3 space-y-3 overflow-x-auto justify-center">
+                            {selectedImage.project.album.map((img, idx) => (
+                            <img
+                                key={idx}
+                                src={img}
+                                alt={`Album image ${idx + 1}`}
+                                className="w-[100%] md:w-[97%] object-contain rounded-md"
+                            />
+                            ))}
+                        </div>
+                        </div>
+                    )}
+                    </motion.div>
+                </div>
                 </div>
             )}
-            <footer className="bg-black text-center py-8">
-                <p className="text-gray-300">
-                    &copy; 2025 Victor Okeowo. All rights reserved.
+
+            {/* Footer */}
+            <footer className="w-full bg-black border-t border-gray-800 py-6 mt-auto">
+                <div className="max-w-6xl mx-auto text-center text-gray-300">
+                <p>&copy; 2025 Victor Okeowo. All rights reserved.</p>
+                <p>
+                    Designed By{" "}
+                    <a
+                    href="mailto:adeyeriopeoluwa05@gmail.com"
+                    className="text-blue-400"
+                    >
+                    Opeoluwa Adeyeri
+                    </a>
                 </p>
-                <p className="text-gray-300">
-                    Designed By <a href="mailto:adeyeriopeoluwa05@gmail.com" className="text-blue-400">Opeoluwa Adeyeri</a>
-                </p>
+                </div>
             </footer>
         </div>
     );
